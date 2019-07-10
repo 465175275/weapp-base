@@ -2,7 +2,6 @@ import Taro, { Component, getApp } from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
 import { connect } from '@tarojs/redux'
 import './index.less'
-import Title from '../../components/Title'
 
 @connect(({common}) => ({...common}))
 
@@ -16,10 +15,6 @@ export default class Index extends Component {
   }
 
   componentWillMount () {
-    
-  }
-
-  componentDidMount () {
     const token = Taro.getStorageSync('token')
     if(token) {
       Taro.reLaunch({
@@ -30,6 +25,9 @@ export default class Index extends Component {
         url: '/pages/login/index'
       })
     }
+  }
+
+  componentDidMount () {
   }
 
   componentWillUnmount () { }
